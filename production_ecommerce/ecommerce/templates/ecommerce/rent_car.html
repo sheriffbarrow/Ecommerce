@@ -1,0 +1,171 @@
+{% extends "ecommerce/base/index-example.html" %}
+{% block login %}
+{% load static %}
+{% load crispy_forms_tags %}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<link href="{% static 'css/profile.css'%}" rel="stylesheet" media="all">
+<!------ Include the above in your HEAD tag ---------->
+
+<!--
+User Profile Sidebar by @keenthemes
+A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme
+Licensed under MIT
+-->
+
+<div class="container">
+
+    <!-- Breadcrumb Start -->
+    <div class="breadcrumb-area mt-30">
+        <div class="container">
+            <div class="breadcrumb">
+                <ul class="d-flex align-items-center">
+                    <li><a href="{% url 'ecommerce:home' %}">Home</a></li>
+                    <li class="active"><a href="{% url 'ecommerce:rent_car' %}">Sell a Car</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Container End -->
+    </div>
+    {% if messages %}
+        {% for message in messages %}
+        <div class="well">
+            <div class="alert alert-success" role="alert">
+            <center>{{ message }}</center>
+            </div>
+        </div>
+        {% endfor %}
+    {% endif %}
+    <div class="row profile">
+		<div class="col-md-9">
+            <legend>SELL OR RENT A CAR</legend>
+            <style>
+.vl {
+  border-left: 6px solid green;
+  height: 500px;
+}
+</style>
+            <div class="profile-content">
+                <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+            <div class="card card-5">
+                <div class="card-body">
+                    <form method="POST" action="{% url 'ecommerce:rent_car' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                            <div class="form-row">
+                                <div class="form-group col-md-10 mb-0">
+                                    {{ form.brand|as_crispy_field }}
+                                </div>
+                                <div class="form-group col-md-10 mb-0">
+                                    {{ form.model|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-10 mb-0">
+                                    {{ form.model_year|as_crispy_field }}
+                                </div>
+                                <div class="form-group col-md-10 mb-0">
+                                    {{ form.millage|as_crispy_field }}
+                                </div>
+                            </div>
+                            <p>Transmission</p>
+                            <div class="form-row">
+                                <div class="form-group col-md-4 mb-0">
+                                    {{ form.manual|as_crispy_field }}
+                                </div>
+                                <div class="form-group col-md-4 mb-0">
+                                    {{ form.automatic|as_crispy_field }}
+                                </div>
+                                <div class="form-group col-md-4 mb-0">
+                                    {{ form.other|as_crispy_field }}
+                                </div>
+                            </div>
+                            <p>Fuel Type</p>
+                            <div class="form-row">
+                                <div class="form-group col-md-2 mb-0">
+                                    {{ form.petrol|as_crispy_field }}
+                                </div>
+                                <div class="form-group col-md-2 mb-0">
+                                    {{ form.diesel|as_crispy_field }}
+                                </div>
+                                <div class="form-group col-md-2 mb-0">
+                                    {{ form.hybrid|as_crispy_field }}
+                                </div>
+                                <div class="form-group col-md-2 mb-0">
+                                    {{ form.electric|as_crispy_field }}
+                                </div>
+                                <div class="form-group col-md-2 mb-0">
+                                    {{ form.other|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-10 mb-0">
+                                    {{ form.description|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-10 mb-0">
+                                    {{ form.region|as_crispy_field }}
+                                </div>
+                            </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-10 mb-0">
+                                {{ form.town|as_crispy_field }}
+                            </div>
+
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-10 mb-0">
+                                {{ form.locality|as_crispy_field }}
+                            </div>
+
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-10 mb-0">
+                                {{ form.contact|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-10 mb-0">
+                                {{ form.contact2|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-10 mb-0">
+                                {{ form.price|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-10 mb-0">
+                                {{ form.negotiable|as_crispy_field }}
+                            </div>
+                        </div>
+                        <p>maximum of 5 images allowed</p>
+                        <div class="form-row">
+                            <div class="form-group col-md-6 mb-0">
+                                <input type="file" name="carimages" multiple class="btn btn-danger">
+                            </div>
+
+                        </div>
+                        <div class="terms">
+                            <div class="float-md-right">
+                                <input type="submit" value="SUBMIT" class="return-customer-btn">
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+    </div>
+            </div>
+		</div>
+	</div>
+    <script>
+        $("#success-alert").fadeTo(2000, 500).slideUp(900, function(){
+            $("#success-alert").slideUp(500);
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "ecommerce/base.html" %}
+
+{% block select %}
+<form id='venor_form' method="POST" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% for hedden in Vendorform.hidden_fields %}
+    {{hidden}}
+    {% endfor %}
+    {% for fields in VenderForm %}
+    {{fields}} <br />
+    {% endfor %}
+    {{ formset.management_form }}
+    {% for form in formset %}
+    {{form}}
+    {% endfor %}
+</form>
+{% endblock %}

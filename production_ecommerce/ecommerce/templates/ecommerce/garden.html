@@ -1,0 +1,86 @@
+{% extends "ecommerce/base/index-example.html" %}
+
+{% block select %}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!-- Team -->
+<div class="breadcrumb-area mt-30">
+    <div class="container">
+        <div class="breadcrumb">
+            <ul class="d-flex align-items-center">
+                <li><a href="{% url 'ecommerce:home' %}">Home</a></li>
+                <li class="active"><a href="{% url 'ecommerce:vendor_options' %}">Services</a></li>
+                <li class="active"><a href="{% url 'ecommerce:garden' %}">GARDEN</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Container End -->
+</div>
+<div class="back">
+    <section id="team" class="pb-5">
+
+        <div class="container">
+            <h5 class="section-title h1">GARDEN SERVICE</h5>
+            <div class="row">
+                <!-- Team member -->
+                {% if vendor %}
+                {% for plumber in vendor %}
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                        <div class="mainflip">
+                            <div class="frontside">
+                                <div class="card">
+                                    <div class="card-body text-center">
+
+                                        <p><img class=" img-fluid"  src="{{plumber.first_image.file.url}}" alt="card image"></p>
+                                        <h4 class="card-title">{{plumber.trade_name}}</h4>
+                                        <p class="card-text">{{ plumber.service_description|truncatewords:"9"}}.</p>
+                                        <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="backside">
+                                <div class="card">
+                                    <div class="card-body text-center mt-4">
+                                        <h4 class="card-title">{{plumber.trade_name}}</h4>
+                                        <p class="card-text">{{plumber.service_description|truncatewords:"10"}}</p>
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item">
+                                                <a class="social-icon text-xs-center" href="{{plumber.get_absolute_url}}">
+                                                    <i >VIEW DETAIL</i>
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                            <h3><i >NO GARDENERS YET</i</h3>
+                    </li>
+
+                </ul>
+                {% endif %}
+                <!-- ./Team member -->
+                <!-- Team member -->
+
+                <!-- ./Team member -->
+
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+from django.urls import path
+from ecommerce import views
+from .views import (
+    ItemDetailView,
+    HomeView,
+    Form_view, Vendor_option,
+    Plumber, SellMessage,
+    Electrical, Laundry, Garden, Tilin, Cleaning, Carpentry,
+    ServiceDetail, ProductDetail, Shop, CarDetail, HouseDetail,
+)
+
+app_name = 'ecommerce'
+
+urlpatterns = [
+    path('nivoslider/', views.nivoslider, name='nivo'),
+    path('try/', views.tr, name='try'),
+    path('admin/', views.admin, name='admin'),
+    path('', HomeView.as_view(), name='home'),
+    path('vendor/', Vendor_option.as_view(), name='vendor_options'),
+    path('tryform/', Form_view.as_view(), name='tryform'),
+    path('settings/', views.accountSettings, name='settingss'),
+    #path('', views.slider, name='home'),
+    path('send/request/', views.send_mail, name='send_mail'),
+    path('advertise/vendor/', views.vendor_sell_multiple, name='multiple'),
+    path('vendor/single/multiple/', views.vendor_sell, name='singlemultiple'),
+    path('messages/', SellMessage.as_view(), name='message'),
+    path('sell/product/', views.sell, name='sell'),
+    path('sell/house/', views.rent_house, name='rent_house'),
+    path('sell/car/', views.rent_car, name='rent_car'),
+    path('sell/car/', views.rent_car_multiple, name='car-multiple'),
+    path('order/food/', views.food, name='food'),
+    path('buy/product/', Shop.as_view(), name='shop'),
+    path('service/plumbing/', Plumber.as_view(), name='plumbing'),
+    path('service/electrical/', Electrical.as_view(), name='electrical'),
+    path('service/carpentry/', Carpentry.as_view(), name='carpentry'),
+    path('service/garding/', Garden.as_view(), name='garden'),
+    path('service/laundry/', Laundry.as_view(), name='laundry'),
+    path('service/tilin/', Tilin.as_view(), name='tilin'),
+    path('service/cleaning/', Cleaning.as_view(), name='cleaning'),
+    path('service/detail/<int:pk>/', ServiceDetail.as_view(), name='detail'),
+    path('<slug:slug>/', ProductDetail.as_view(), name='product-details'),
+    path('car/detail/<int:pk>/', CarDetail.as_view(), name='cardetail'),
+    path('house/details/<int:pk>/', HouseDetail.as_view(), name='housedetail'),
+    path('service/electrical/', views.electrical, name='electrical'),
+    path('options/', views.vendor_options, name='vendor-options'),
+    path('dashboard/', views.vendor_sell, name='vendor_sell'),
+    path('checkout/', CheckoutView.as_view(), name='checkout'),
+    path('order-summary/', OrderSummaryView.as_view(), name='order-summary'),
+    path('product/<slug>/', ItemDetailView.as_view(), name='product'),
+]

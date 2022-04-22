@@ -1,0 +1,41 @@
+{% extends 'ecommerce/base/index-example.html' %}
+{% block select %}
+{% load static %}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.nivo.slider.js"></script>
+<link rel="stylesheet" href="../themes/default/default.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../nivo-slider.css" type="text/css" media="screen" />
+<div id="slider" class="nivoSlider"> 
+  <img src="{% static 'img/slider/carousel5.jpg' %}" data-thumb="{% static 'img/slider/carousel5.jpg' %}" alt="" /> 
+  <img src="{% static 'img/slider/carouselj.jpg' %}" data-thumb="{% static 'img/slider/carouselj.jpg' %}" alt="" title="This is an example of a caption" />
+  <img src="{% static 'img/slider/carousel1.jpg' %}" data-thumb="{% static 'img/slider/carousel1.jpg' %}" alt="" data-transition="slideInLeft" /> 
+  <img src="images/nemo.jpg" data-thumb="images/nemo.jpg" alt="" title="#htmlcaption" /> 
+  </div>
+
+  <script type="text/javascript">
+    $(window).load(function() {
+    $('#slider').nivoSlider({
+    effect: 'random',
+    slices: 15,
+    boxCols: 8,
+    boxRows: 4,
+    animSpeed: 500,
+    pauseTime: 3000,
+    startSlide: 0,
+    directionNav: true,
+    controlNav: true,
+    controlNavThumbs: false,
+    pauseOnHover: true,
+    manualAdvance: false,
+    prevText: 'Prev',
+    nextText: 'Next',
+    randomStart: false,
+    beforeChange: function(){},
+    afterChange: function(){},
+    slideshowEnd: function(){},
+    lastSlide: function(){},
+    afterLoad: function(){}
+    });
+    });
+    </script>
+  {% endblock select %}

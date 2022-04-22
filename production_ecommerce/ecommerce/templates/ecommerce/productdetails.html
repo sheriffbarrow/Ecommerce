@@ -1,0 +1,134 @@
+{% extends "ecommerce/base/index-example.html" %}
+{% block select %}
+
+<style media="screen">
+    %shared {
+        box-shadow: 2px 2px 10px 5px #b8b8b8;
+        border-radius: 10px;
+    }
+
+    * {
+        transition: all 0.5s ease;
+    }
+
+    #thumbnails {
+
+
+        img {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            cursor: pointer;
+
+            @media only screen and (max-width:480px) {
+                width: 50px;
+                height: 50px;
+            }
+
+            @extend %shared;
+
+            &:hover {
+                transform: scale(1.05)
+            }
+        }
+    }
+
+    #main {
+        width: 50%;
+        height: 400px;
+        object-fit: cover;
+
+        margin: 20px;
+        @extend %shared;
+
+        @media only screen and (max-width:480px) {
+            width: 100%;
+        }
+    }
+
+    .hidden {
+        opacity: 0;
+    }
+    .container{
+        float: right;
+    }
+    #stext{
+        margin-left: 55%;
+        margin-bottom: 50;
+    }
+</style>
+<div class="breadcrumb-area mt-30">
+    <div class="container">
+        <div class="breadcrumb">
+            <ul class="d-flex align-items-center">
+                <li><a href="{% url 'ecommerce:home' %}">Home</a></li>
+                <li class="active"><a href="{% url 'ecommerce:sell' %}">Sell a Product</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Container End -->
+</div>
+    <img src="{{ details.first_product_image.image.url}}"style="width:500px;" id="main">
+    <div id="thumbnails">
+        {% for details in details.productimages.all %}
+      <img src="{{details.image.url}}" style="height:100px;">
+      {% endfor %}
+    </div>
+    <div class="col-lg-7" id="stext">
+        <div class="thubnail-desc fix">
+            <h3 class="product-header">Faded Short Sleeves T-shirt</h3>
+            <div class="rating-summary fix mtb-10">
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+
+            </div>
+            <div class="pro-price mtb-30">
+                <p class="d-flex align-items-center"><span class="prev-price">16.51</span><span class="price">$15.19</span><span class="saving-price">save 8%</span></p>
+            </div>
+            <p class="mb-20 pro-desc-details">Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!</p>
+
+            <div class="box-quantity d-flex hot-product2">
+
+                <div class="pro-actions">
+                    <div class="actions-primary">
+                        <a href="cart.html" title="" data-original-title="Add to Cart"> + Add To Cart</a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="pro-ref mt-20">
+                <p><span class="in-stock"><i class="ion-checkmark-round"></i> IN STOCK</span></p>
+            </div>
+            <div class="socila-sharing mt-25">
+                <ul class="d-flex">
+                    <li>share</li>
+                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus-official" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript">
+    var thumbnails = document.getElementById("thumbnails")
+    var imgs = thumbnails.getElementsByTagName("img")
+    var main = document.getElementById("main")
+    var counter = 0;
+
+    for (let i = 0; i < imgs.length; i++) {
+        let img = imgs[i]
+
+
+        img.addEventListener("click", function() {
+            main.src = this.src
+        })
+
+    }
+</script>
+{% endblock %}

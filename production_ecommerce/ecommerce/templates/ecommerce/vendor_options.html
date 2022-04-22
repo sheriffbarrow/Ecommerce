@@ -1,0 +1,163 @@
+{% extends "ecommerce/base/index-example.html" %}
+
+{% block select %}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!-- Team -->
+<div class="breadcrumb-area mt-30">
+    <div class="container">
+        <div class="breadcrumb">
+            <ul class="d-flex align-items-center">
+                <li><a href="{% url 'ecommerce:home' %}">Home</a></li>
+                <li class="active"><a href="{% url 'ecommerce:vendor_options' %}">Services</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Container End -->
+</div>
+<div class="back">
+
+    <section id="team" class="pb-5">
+        <div class="container">
+            <p><h4>SERVICES WE PROVIDE</h4></p>
+            <h5 class="section-title h1"></h5>
+            <div class="row">
+                <!-- Team member -->
+                <div class="col-xs-12 col-sm-6 col-md-3">
+
+                        <div class="mainflip">
+                            <div class="frontside">
+                                <div class="card">
+                                    <div class="card-body text-center">
+
+                                        <h4 class="card-title">PLUMBING</h4>
+                                        <p class="card-text">This is basic card with image on top, title, description and button.</p>
+                                        <a href="{% url 'ecommerce:plumbing' %}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="mainflip">
+                            <div class="frontside">
+                                <div class="card">
+                                    <div class="card-body text-center">
+
+                                        <h4 class="card-title">TILING</h4>
+                                        <p class="card-text">This is basic card with image on top, title, description and button.</p>
+                                        <a href="{% url 'ecommerce:tilin' %}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                </div>
+                <!-- ./Team member -->
+                <!-- Team member -->
+                <div class="col-xs-12 col-sm-6 col-md-3">
+
+                        <div class="mainflip">
+                            <div class="frontside">
+                                <div class="card">
+                                    <div class="card-body text-center">
+
+                                        <h4 class="card-title">ELECTRICAL</h4>
+                                        <p class="card-text">This is basic card with image on top, title, description and button.</p>
+                                        <a href="{% url 'ecommerce:electrical' %}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                </div>
+                <!-- ./Team member -->
+                <!-- Team member -->
+                <div class="col-xs-12 col-sm-6 col-md-3">
+
+                        <div class="mainflip">
+                            <div class="frontside">
+                                <div class="card">
+                                    <div class="card-body text-center">
+
+                                        <h4 class="card-title">CARPENTRY</h4>
+                                        <p class="card-text">This is basic card with image on top, title, description and button.</p>
+                                        <a href="{% url 'ecommerce:carpentry' %}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                </div>
+                <!-- ./Team member -->
+                <!-- Team member -->
+                <div class="col-xs-12 col-sm-6 col-md-3">
+
+                        <div class="mainflip">
+                            <div class="frontside">
+                                <div class="card">
+                                    <div class="card-body text-center">
+
+                                        <h4 class="card-title">CLEANING</h4>
+                                        <p class="card-text">This is basic card with image on top, title, description and button.</p>
+                                        <a href="{% url 'ecommerce:cleaning' %}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                </div>
+                <!-- ./Team member -->
+                <!-- Team member -->
+                <div class="col-xs-12 col-sm-6 col-md-3">
+
+                        <div class="mainflip">
+                            <div class="frontside">
+                                <div class="card">
+                                    <div class="card-body text-center">
+
+                                        <h4 class="card-title">GARDEN</h4>
+                                        <p class="card-text">This is basic card with image on top, title, description and button.</p>
+                                        <a href="{% url 'ecommerce:garden' %}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                </div>
+                <!-- ./Team member -->
+                <!-- Team member -->
+                <div class="col-xs-12 col-sm-6 col-md-3">
+
+                        <div class="mainflip">
+                            <div class="frontside">
+                                <div class="card">
+                                    <div class="card-body text-center">
+
+                                        <h4 class="card-title">LAUNDRY</h4>
+                                        <p class="card-text">This is basic card with image on top, title, description and button.</p>
+                                        <a href="{% url 'ecommerce:laundry' %}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                </div>
+                <!-- ./Team member -->
+
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

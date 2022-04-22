@@ -1,0 +1,83 @@
+{% extends "ecommerce/base/index-example.html" %}
+{% block login %}
+{% load static %}
+{% load crispy_forms_tags %}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="{% static 'css/profile.css'%}" rel="stylesheet" media="all">
+<!------ Include the above in your HEAD tag ---------->
+
+<!--
+User Profile Sidebar by @keenthemes
+A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme
+Licensed under MIT
+-->
+
+<div class="container">
+    <!-- Breadcrumb Start -->
+    <div class="breadcrumb-area mt-30">
+        <div class="container">
+            <div class="breadcrumb">
+                <ul class="d-flex align-items-center">
+                    <li><a href="{% url 'ecommerce:home' %}">Home</a></li>
+                    <li class="active"><a href="{% url 'ecommerce:food' %}">Order Food</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Container End -->
+    </div>
+    <div class="row profile">
+        <div class="col-md-9">
+            <legend>Order Food</legend>
+            <div class="profile-content">
+                <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+                    <div class="card card-5">
+                        <div class="card-body">
+                            <form method="POST" action="{% url 'ecommerce:food' %}">
+                                {% csrf_token %}
+                                <div class="form-row">
+                                    <div class="form-group col-md-10 mb-0">
+                                        {{ form.menu|as_crispy_field }}
+                                    </div>
+                                    <div class="form-group col-md-10 mb-0">
+                                        {{ form.location|as_crispy_field }}
+                                    </div>
+                                </div>
+                                <div class="form-row">
+
+                                    <div class="form-group col-md-10 mb-0">
+                                        <label>*optional</label>
+                                        {{ form.gps_address|as_crispy_field }}
+                                    </div>
+                                </div>
+                                <div class="form-row">
+
+                                    <div class="form-group col-md-10 mb-0">
+                                        {{ form.contact|as_crispy_field }}
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6 mb-0">
+                                        {{ formset.management_form }}
+                                        {% for f in formset %}
+                                        {{f.as_p}}
+                                        {% endfor %}
+                                    </div>
+
+                                </div>
+                                <div class="terms">
+                                    <div class="float-md-right">
+                                        <input type="submit" value="SUBMIT" class="return-customer-btn">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

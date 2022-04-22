@@ -1,0 +1,180 @@
+<!doctype html>
+{% extends 'ecommerce/base/index-example.html' %}
+{% load hitcount_tags %}
+{% load static %}
+{% block select %}
+<html class="no-js" lang="zxx">
+
+<style media="screen">
+    #main{
+        height: 300px;
+        object-fit:cover;
+        object-position: center center;
+    }
+    #thumbnails img{
+        height: 80px;
+        object-fit:cover;
+        object-position: center center;
+    }
+</style>
+<body>
+    <!--[if lte IE 9]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+	<![endif]-->
+
+    <!-- Main Wrapper Start Here -->
+    <div class="wrapper">
+        <div class="breadcrumb-area mt-30">
+            <div class="container">
+                <div class="breadcrumb">
+                    <ul class="d-flex align-items-center">
+                        <li><a href="{% url 'ecommerce:home' %}">Home</a></li>
+                        <li class="active"><a href="{% url 'ecommerce:vendor_options' %}">Services</a></li>
+                        <li class="active"><a href="#">Service Details</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+
+        <!-- Breadcrumb End -->
+        <!-- Product Thumbnail Start -->
+        <div class="main-product-thumbnail ptb-100 ptb-sm-60">
+            <div class="container">
+                <div class="thumb-bg">
+                    <div class="row">
+                        <!-- Main Thumbnail Image Start -->
+                        <div class="col-lg-5 mb-all-40">
+                            <!-- Thumbnail Large Image start -->
+                            <div class="tab-content">
+                                <div id="thumb1" class="tab-pane fade show active">
+                                    <a data-fancybox="images" href="#"><img src="{{detail.first_image.file.url}}" id="main" alt="product-view"></a>
+                                </div>
+
+                            </div>
+                            <!-- Thumbnail Large Image End -->
+                            <!-- Thumbnail Image End -->
+
+                            <div class="product-thumbnail mt-15">
+                                <div id="thumbnails" class="thumb-menu owl-carousel nav tabs-area" role="tablist">
+                                    {% for vd in detail.images.all %}
+                                    <a data-toggle="tab"><img src="{{vd.file.url}}" alt="product-thumbnail" ></a>
+                                    {% endfor %}
+                                </div>
+
+                            </div>
+
+                            <!-- Thumbnail image end -->
+                        </div>
+
+                        <!-- Main Thumbnail Image End -->
+                        <!-- Thumbnail Description Start -->
+                        <div class="col-lg-7">
+                            <div class="thubnail-desc fix">
+                                <h3 class="product-header">{{detail.trade_name}}</h3>
+
+                                <p>Region: {{detail.region}}</p>
+                                <p>Town: {{detail.town}}</p>
+                                <p>Locality: {{detail.locality}}</p>
+                                <p>{% get_hit_count for detail %} views</p>
+                                <div class="pro-price mtb-30">
+
+                                </div>
+                                <h3 class="product-header">Service Description</h3>
+                                <p class="mb-20 pro-desc-details">{{detail.service_description}}</p>
+
+                                <div class="box-quantity d-flex hot-product2">
+
+                                    <div class="pro-actions">
+                                        <div class="actions-primary">
+                                            <a href="{% url 'ecommerce:send_mail' %}"title="" data-original-title="Request Service"> + Request Service</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="socila-sharing mt-25">
+                                    <ul class="d-flex">
+                                        <li>share</li>
+                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-google-plus-official" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Thumbnail Description End -->
+                    </div>
+                    <!-- Row End -->
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Product Thumbnail End -->
+        <!-- Product Thumbnail Description Start -->
+
+        <!-- Realted Products Start Here -->
+        <div class="hot-deal-products off-white-bg pt-100 pb-90 pt-sm-60 pb-sm-50">
+            <div class="container">
+               <!-- Product Title Start -->
+               <div class="post-title pb-30">
+                   <h2>Realted vendors</h2>
+               </div>
+               <!-- Product Title End -->
+                <!-- Hot Deal Product Activation Start -->
+                <div class="hot-deal-active owl-carousel">
+                    <!-- Single Product Start -->
+                    <div class="single-product">
+                        <!-- Product Image Start -->
+                        <div class="pro-img">
+                            <a href="">
+                                <img class="primary-img" src="img/products/17.jpg" alt="single-product">
+                                <img class="secondary-img" src="img/products/18.jpg" alt="single-product">
+                            </a>
+                            <a href="#" class="quick_view" data-toggle="modal" data-target="#myModal" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
+                        </div>
+                        <!-- Product Image End -->
+                        <!-- Product Content Start -->
+                        <div class="pro-content">
+                            <div class="pro-info">
+                                <h4><a href=""></a></h4>
+                                <p><span class="price"></span></p>
+                            </div>
+                         
+                        </div>
+                        <!-- Product Content End -->
+                        <span class="sticker-new">new</span>
+                    </div>
+                </div>
+                <!-- Hot Deal Product Active End -->
+
+            </div>
+            <!-- Container End -->
+        </div>
+
+
+    </div>
+    <!-- Main Wrapper End Here -->
+
+    <!-- jquery 3.2.1 -->
+
+</body>
+<script type="text/javascript">
+    var thumbnails = document.getElementById("thumbnails")
+    var imgs = thumbnails.getElementsByTagName("img")
+    var main = document.getElementById("main")
+    var counter = 0;
+
+    for (let i = 0; i < imgs.length; i++) {
+        let img = imgs[i]
+
+
+        img.addEventListener("click", function() {
+            main.src = this.src
+        })
+
+    }
+</script>
+{% endblock %}
+</html>

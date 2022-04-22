@@ -1,0 +1,52 @@
+    <div class="well">
+            <form id="{{formId}}" method="POST" action="" novalidate="novalidate">
+              {% csrf_token %}
+                <div class="form-group">
+                    <label for="course" class="control-label">Category</label>
+                    <select name="course" class="form-control" style="border-radius: 25px;">
+                         <option value="Plumber">Plumber</option>
+                         <option value="System_Analysis">Carpenter</option>
+                         <option value="Numerical_Analysis">some stuff</option>
+                         <option value="Calculus">another stuff</option>
+                    </select>
+                    <span class="help-block"></span>
+                </div>
+                <div class="form-group">
+                    <label for="department" class="control-label">Department</label>
+                    <select name="department" class="form-control">
+                       <option value="ICT">ICT</option>
+                       <option value="English">English</option>
+                       <option value="French">French</option>
+                       <option value="Special_Education">Special_Education</option>
+                       <option value="Policalscience">Polical Science</option>
+                    </select>
+                    <span class="help-block"></span>
+                </div>
+                <div class="form-group">
+                    <label for="batch" class="control-label">Another Menu</label>
+                    <select name="batch" class="form-control" style=" border-radius: 25px;">
+                       {% for x in range %}
+                          <option value="{{x}}">{{x}}</option>
+                       {% endfor %}
+                    </select>
+                    <span class="help-block"></span>
+                </div>
+                {% if directpost %}
+                 <button  class=" btn btn-success" id="{{submitButtonId}}">{{submitButtonText}}</button>
+                {% endif %}
+            </form>
+            {% if not directpost %}
+              <div class="form-group">
+                 <button  class=" btn btn-success" id="{{submitButtonId}}">{{submitButtonText}}</button>
+              </div>
+            {% endif %}
+
+              {% if ipButton %}
+               <div class="form-group">
+                 <input id="{{ipwebcamInputId}}" class="form-control" name="{{ipwebcamInputName}}" type="text" placeholder="IP Webcam Hosting Url (http://ip-address)">
+               </div>
+               <button  class="btn btn-success" id="{{ipwebcamSubmitButtonId}}">{{ipwebcamSubmitButtonText}}</button>
+              {% endif %}
+
+        </div>
+  <div class="modal"><!-- Place at bottom of page --></div>

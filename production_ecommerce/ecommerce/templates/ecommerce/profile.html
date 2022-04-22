@@ -1,0 +1,9 @@
+{% {% extends "ecommerce/base/index-example.html" %}}
+<div class="container">
+<h1>Profile Page </h1><a href=="{% url 'ecommerce:login' %}">Logout</a>
+  {% for post in query %}
+          <h2>Welcome <span style="color: #F46404;">{{ post.username}} </h2>
+           <p>Email id: {{ post.email}} </p>
+           <p>First Name: {{ post.first_name}} </p>
+           <p>Last Name: {{ post.last_name}} </p>
+  {% endfor %}

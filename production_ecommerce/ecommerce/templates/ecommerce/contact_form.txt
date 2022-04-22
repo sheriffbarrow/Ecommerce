@@ -1,0 +1,19 @@
+[ REQUEST DETAIL ]
+
+TRADE NAME:
+{{ name }}
+
+SERVICE:
+{{ service }}
+
+CLIENT MAIL:
+{{ email }}
+
+CLIENT PHONE:
+{{ phone }}
+
+WHEN IS SERVICE NEEDED?:
+{{ duration }}
+
+COMMENT:
+{{ comment }}

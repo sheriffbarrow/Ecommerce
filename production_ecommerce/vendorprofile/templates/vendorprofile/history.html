@@ -1,0 +1,21 @@
+{% extends 'home/main.html' %}
+
+
+{% block content %}
+
+    <ul class="list-group">
+     {% for attendance in attendanceList %}
+     <li class="list-group-item list-group-item-info">
+         {{attendance.date}}
+         <span class="label label-success">{{attendance.students.all.0.department}}</span>
+         <span class="label label-success">{{attendance.students.all.0.batch}}</span>
+         <span class="label label-success"> {{attendance.students.all.0.course}}</span>
+         <span class="badge"></span>
+         {% include "home/model.html" with  buttonType="span" buttonClass="badge" buttonText=attendance.students.count modelId=forloop.counter heading=attendance.date modelText=attendance.students.all  %}
+    </li>
+     {% endfor %}
+  </ul>
+
+
+
+{% endblock %}

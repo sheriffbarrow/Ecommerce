@@ -1,0 +1,267 @@
+<!doctype html>
+
+{% extends "ecommerce/base.html" %}
+{% load hitcount_tags %}
+{% block slider %}
+{% include 'ecommerce/temp.html' %}
+{% endblock slider %}
+{% block content %}
+<html class="no-js" lang="zxx">
+{% load humanize %}
+
+<body>
+
+
+    <style media="screen">
+        .primary-img {
+            height: 150px;
+            object-fit: cover;
+            object-position: center center;
+        }
+
+        .secondary-img {
+            object-fit: cover;
+            object-position: center center;
+        }
+    </style>
+    <!-- Brand Banner Area End Here -->
+    <!-- Hot Deal Products Start Here -->
+    <div class="hot-deal-products off-white-bg pb-90 pb-sm-50">
+        <div class="container">
+
+            <!-- Product Title Start -->
+            <div class="post-title pb-30">
+                <h2>hot deals</h2>
+            </div>
+            <!-- Product Title End -->
+            <!-- Hot Deal Product Activation Start -->
+            <div class="hot-deal-active owl-carousel">
+                {% if items %}
+                {% for products in items %}
+                <!-- Single Product Start -->
+                <div class="single-product">
+                    <!-- Product Image Start -->
+                    <div class="pro-img">
+                        <a href="{{ products.get_absolute_url }}">
+                            <img class="primary-img" src="{{ products.first_product_image.image.url }}"
+                                alt="single-product">
+                            <img class="secondary-img" src="{{ products.image.url }}" alt="single-product">
+                        </a>
+
+
+                    </div>
+                    <!-- Product Image End -->
+                    <!-- Product Content Start -->
+                    <div class="pro-content">
+                        <div class="pro-info">
+                            <h4><a href="">{{ products.title }}</a></h4>
+                            <p><span class="price">GH&#8373; {{ products.price|intcomma }}</span><del
+                                    class="prev-price">GH&#8373; {{ products.previous_price|intcomma }}</del></p>
+                            <div class="label-product l_sale">{% get_hit_count for products %} views<span></span></div>
+                            <div class="label-product _sale">{{ products.posted_date|naturaltime}}<span
+                                    class="symbol-percent"></span></div>
+                        </div>
+                    </div>
+                    <span class="sticker-new">new</span>
+                    <!-- Product Content End -->
+                </div>
+
+
+                <!-- Single Product End -->
+                {%endfor%}
+                {% else %}
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <h3><i>NO PRODUCTS YET</i< /h3>
+                    </li>
+
+                </ul>
+                {%endif%}
+            </div>
+            <!-- Hot Deal Product Active End -->
+
+        </div>
+        <!-- Container End -->
+    </div>
+    <!-- Hot Deal Products End Here -->
+    <!-- Hot Deal Products End Here -->
+
+
+    <!-- Big Banner End Here -->
+    <!-- Arrivals Products Area Start Here -->
+    <div class="arrivals-product pb-85 pb-sm-45">
+        <div class="container">
+            <div class="main-product-tab-area">
+                    <div class="section-ttitle">
+                        <h2>Find Our Best Automobile Deals</h2>
+                    </div>
+                <div class="like-product ptb-95 off-white-bg pt-sm-50 pb-sm-55 ">
+                    <div class="container">
+                        <div class="like-product-area">
+
+                            <!-- Arrivals Product Activation Start Here -->
+                            <div class="like-pro-active owl-carousel">
+                                <!-- Double Product Start -->
+                                {% if cars %}
+                                {% for car in cars %}
+
+                                <!-- Single Product Start -->
+                                <div class="single-product">
+                                    <!-- Product Image Start -->
+
+                                    <div class="pro-img">
+                                        <a href="{{ car.get_absolute_url }}">
+                                            <img class="primary-img" src="{{ car.first_car_image.image.url }}"
+                                                alt="single-product">
+                                            <img class="secondary-img" src="{{ car.image.url }}" alt="single-product">
+                                        </a>
+
+                                    </div>
+
+                                    <!-- Product Image End -->
+                                    <!-- Product Content Start -->
+                                    <div class="pro-content">
+                                        <div class="pro-info">
+                                            <h4><a href="#">{{car.brand}}-{{car.model}}</a></h4>
+                                            <p><span class="price">GH&#8373; {{car.price|intcomma}}</span></p>
+                                            <div class="label-product l_sale">{% get_hit_count for car %}
+                                                views<span></span></div>
+                                            <div class="label-product _sale">{{ car.pub_date|naturaltime}}<span
+                                                    class="symbol-percent"></span></div>
+                                        </div>
+
+                                    </div>
+                                    <!-- Product Content End -->
+                                </div>
+                                <!-- Single Product End -->
+
+                                {% endfor %}
+                                {% else %}
+                                <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        <h3><i>No Automobiles Yet</i< /h3>
+                                    </li>
+
+                                </ul>
+                                {% endif %}
+                                <!-- Double Product End -->
+                                <!-- Double Product Start -->
+
+                                <!-- Double Product End -->
+                            </div>
+                            <!-- Arrivals Product Activation End Here -->
+                        </div>
+                        <!-- main-product-tab-area-->
+                    </div>
+                    <!-- Container End -->
+                </div>
+            </div>
+            <!-- Tab Content End -->
+        </div>
+        <!-- main-product-tab-area-->
+    </div>
+    <!-- Container End -->
+    <!-- Like Products Area Start Here -->
+   
+    <!-- Lile Products Area End Here -->
+    <!-- Brand Banner Area Start Here -->
+    <div class="arrivals-product pb-85 pb-sm-45">
+        <div class="container">
+            <div class="main-product-tab-area">
+                    <div class="section-ttitle">
+                        <h2>Find Our Best Automobile Deals</h2>
+                    </div>
+                <div class="like-product ptb-95 off-white-bg pt-sm-50 pb-sm-55 ">
+                    <div class="container">
+                        <div class="like-product-area">
+
+                            <!-- Arrivals Product Activation Start Here -->
+                            <div class="like-pro-active owl-carousel">
+                                <!-- Double Product Start -->
+                                {% if cars %}
+                                {% for car in cars %}
+
+                                <!-- Single Product Start -->
+                                <div class="single-product">
+                                    <!-- Product Image Start -->
+
+                                    <div class="pro-img">
+                                        <a href="{{ car.get_absolute_url }}">
+                                            <img class="primary-img" src="{{ car.first_car_image.image.url }}"
+                                                alt="single-product">
+                                            <img class="secondary-img" src="{{ car.image.url }}" alt="single-product">
+                                        </a>
+
+                                    </div>
+
+                                    <!-- Product Image End -->
+                                    <!-- Product Content Start -->
+                                    <div class="pro-content">
+                                        <div class="pro-info">
+                                            <h4><a href="#">{{car.brand}}-{{car.model}}</a></h4>
+                                            <p><span class="price">GH&#8373; {{car.price|intcomma}}</span></p>
+                                            <div class="label-product l_sale">{% get_hit_count for car %}
+                                                views<span></span></div>
+                                            <div class="label-product _sale">{{ car.pub_date|naturaltime}}<span
+                                                    class="symbol-percent"></span></div>
+                                        </div>
+
+                                    </div>
+                                    <!-- Product Content End -->
+                                </div>
+                                <!-- Single Product End -->
+
+                                {% endfor %}
+                                {% else %}
+                                <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        <h3><i>No Automobiles Yet</i< /h3>
+                                    </li>
+
+                                </ul>
+                                {% endif %}
+                                <!-- Double Product End -->
+                                <!-- Double Product Start -->
+
+                                <!-- Double Product End -->
+                            </div>
+                            <!-- Arrivals Product Activation End Here -->
+                        </div>
+                        <!-- main-product-tab-area-->
+                    </div>
+                    <!-- Container End -->
+                </div>
+            </div>
+            <!-- Tab Content End -->
+        </div>
+        <!-- main-product-tab-area-->
+    </div>
+    <!-- Brand Banner Area End Here -->
+    <div class="big-banner pb-100 pb-sm-60">
+        <div class="container big-banner-box">
+            <div class="col-img">
+                <a href="#">
+                    <img src="static/img/banner/5.jpg" alt="">
+                </a>
+            </div>
+            <div class="col-img">
+                <a href="#">
+                    <img src="static/img/banner/h1-banner3.jpg" alt="">
+                </a>
+            </div>
+        </div>
+        <!-- Container End -->
+    </div>
+    <!-- Support Area Start Here -->
+
+    <!-- Support Area End Here -->
+
+    <!-- Quick View Content End -->
+    <!-- Main Wrapper End Here -->
+
+    <!-- jquery 3.2.1 -->
+
+</body>
+
+</html>
+{% endblock content %}

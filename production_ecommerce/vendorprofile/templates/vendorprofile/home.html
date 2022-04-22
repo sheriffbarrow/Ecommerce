@@ -1,0 +1,101 @@
+{% extends 'vendorprofile/main.html' %}
+
+
+{% block content %}
+
+<style>
+/* Start by setting display:none to make this hidden.
+   Then we position it in relation to the viewport window
+   with position:fixed. Width, height, top and left speak
+   for themselves. Background we set to 80% white with
+   our animation centered, and no-repeating */
+.modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 )
+                url("/media/media/wait.gif")
+                50% 50%
+                no-repeat;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading {
+    overflow: hidden;
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .modal {
+    display: block;
+}
+
+</style>
+
+{% include "ecommerce/classForm.html" with   ipwebcamInputName="ipwebcamUrl" ipwebcamInputId="ipwebcamUrl" ipwebcamSubmitButtonId="ipwebcamcapture" ipwebcamSubmitButtonText="Start Attendance Using IP WebCam" ipButton="True" %}
+
+<script type="text/javascript">
+$body = $("body");
+
+$(document).on({
+    ajaxStart: function() { $body.addClass("loading");    },
+     ajaxStop: function() { $body.removeClass("loading"); }
+});
+
+function ajaxSend(fd,url,rurl){
+
+  $.ajax({
+  url:url,
+  type: "POST",
+  data: fd,
+  success:function(data){
+    window.open(rurl,'_self')
+  },
+  error: function (xhr, ajaxOptions, thrownError) {
+    alert("errrr")
+     alert(xhr.status);
+     alert(thrownError);
+     alert(ajaxOptions);
+   },
+  processData: false,  // tell jQuery not to process the data
+  contentType: false   // tell jQuery not to set contentType
+  });
+
+}
+
+
+function startCapturing(){
+
+     var fd = new FormData(document.querySelector("#attendanceForm"));
+     fd.append("author", "Barrow");
+     ajaxSend(fd,"/startcapturing/",'/webcamcapture/')
+}
+
+
+
+
+function ipcamstartCapturing(){
+     var fd = new FormData(document.querySelector("#attendanceForm"));
+     var url=$("#ipwebcamUrl").val()
+     fd.append("ipwebcamurl",url);
+     ajaxSend(fd,"/startcapturing/",'/ipwebcamcapture/')
+}
+
+
+ $("#startAttendance").click(function(){
+                startCapturing();
+             });
+
+  $("#ipwebcamcapture").click(function(){
+      ipcamstartCapturing();
+  });
+
+
+ </script>
+
+{% endblock %}

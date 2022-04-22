@@ -1,0 +1,405 @@
+{% extends 'ecommerce/base/index-example.html' %}
+
+{% block slider %}
+{% include 'ecommerce/temp.html' %}
+{% endblock slider %}
+{% block main %}
+<div class="hot-deal-products off-white-bg pb-90 pb-sm-50">
+  <div class="container">
+    <!-- Product Title Start -->
+    <div class="post-title pb-30">
+      <h2>hot deals</h2>
+    </div>
+    
+    <!-- Product Title End -->
+    <!-- Hot Deal Product Activation Start -->
+    <div class="hot-deal-active owl-carousel">
+      {% if products %}
+      {% for product in products %}
+      <!-- Single Product Start -->
+      <div class="single-product">
+        <!-- Product Image Start -->
+        <div class="container banner-2">
+          <div class="banner-box">
+            <div class="col-img">
+              <a href="{{ product.get_absolute_url }}"><img src="{{ product.first_product_image.pimage.url }}"
+                  alt="banner 3"></a>
+            </div>
+          </div>
+
+        </div>
+        <!--
+        <div class="pro-img">
+          <a href="{{ product.get_absolute_url }}">
+            <img class="primary-img" src="{{ product.first_product_image.pimage.url }}" alt="single-product">
+            <img class="secondary-img" src="{{ product.first_product_image.pimage.url }}" alt="single-product">
+          </a>
+         
+        </div>
+      -->
+        <!-- Product Image End -->
+        <!-- Product Content Start -->
+        <div class="pro-content">
+          <div class="pro-info">
+            <h4><a href="{{ product.get_absolute_url }}">{{ product.title }}</a></h4>
+            <p><span class="price">GH&#8373; {{ product.price }}</span><del class="prev-price">GH&#8373; {{ product.previous_price }}</del></p>
+            <!--<div class="label-product l_sale">views<span class="symbol-percent"></span></div>-->
+          </div>
+
+        </div>
+        <!-- Product Content End -->
+      </div>
+      {% endfor %}
+      {% else %}
+      <ul class="list-inline">
+        <li class="list-inline-item">
+          <h3><i>NO PRODUCTS</i</h3>
+        </li>
+
+      </ul>
+      {% endif %}
+      <!-- Single Product End -->
+      <!-- Single Product End -->
+    </div>
+    <!-- Hot Deal Product Active End -->
+
+  </div>
+  <!-- Container End -->
+</div>
+<!-- Hot Deal Products End Here -->
+<!-- Hot Deal Products End Here -->
+
+
+<!-- Arrivals Products Area Start Here -->
+<!-- Big Banner Start Here -->
+<div class="big-banner mt-100 pb-85 mt-sm-60 pb-sm-45">
+  <div class="back">
+    <section id="team" class="pb-5">
+      <div class="container">
+        <div class="post-title pb-30">
+          <h2>check out some of our top vendors</h2>
+        </div>
+          <div class="row">
+              <!-- Team member -->
+              <div class="col-xs-12 col-sm-6 col-md-3">
+
+                      <div class="mainflip">
+                          <div class="frontside">
+                              <div class="card">
+                                  <div class="card-body text-center">
+                                      <a href="{% url 'ecommerce:plumbing' %}"><h4 class="card-title">PLUMBING</h4></a>
+                                      <p class="card-text">This is basic card with image on top, title, description and button.</p>
+                                      <a href="{% url 'ecommerce:plumbing' %}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                  </div>
+                              </div>
+                          </div>
+
+                      </div>
+
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-3">
+                      <div class="mainflip">
+                          <div class="frontside">
+                              <div class="card">
+                                  <div class="card-body text-center">
+                                    <a href="{% url 'ecommerce:tilin' %}"><h4 class="card-title">TILING</h4></a>     
+                                      <p class="card-text">This is basic card with image on top, title, description and button.</p>
+                                      <a href="{% url 'ecommerce:tilin' %}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                  </div>
+                              </div>
+                          </div>
+
+                      </div>
+
+              </div>
+              <!-- ./Team member -->
+              <!-- Team member -->
+              <div class="col-xs-12 col-sm-6 col-md-3">
+
+                      <div class="mainflip">
+                          <div class="frontside">
+                              <div class="card">
+                                  <div class="card-body text-center">
+                                    <a href="{% url 'ecommerce:electrical' %}"><h4 class="card-title">ELECTRICAL</h4></a>
+                                      <p class="card-text">This is basic card with image on top, title, description and button.</p>
+                                      <a href="{% url 'ecommerce:electrical' %}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                  </div>
+                              </div>
+                          </div>
+
+                      </div>
+
+              </div>
+              <!-- ./Team member -->
+              <!-- Team member -->
+              <div class="col-xs-12 col-sm-6 col-md-3">
+
+                      <div class="mainflip">
+                          <div class="frontside">
+                              <div class="card">
+                                  <div class="card-body text-center">
+                                    <a href="{% url 'ecommerce:carpentry' %}"><h4 class="card-title">CARPENTRY</h4></a> 
+                                      <p class="card-text">This is basic card with image on top, title, description and button.</p>
+                                      <a href="{% url 'ecommerce:carpentry' %}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                  </div>
+                              </div>
+                          </div>
+
+                      </div>
+
+              </div>
+              <!-- ./Team member -->
+              <!-- Team member -->
+              <div class="col-xs-12 col-sm-6 col-md-3">
+
+                      <div class="mainflip">
+                          <div class="frontside">
+                              <div class="card">
+                                  <div class="card-body text-center">
+                                    <a href="{% url 'ecommerce:cleaning' %}"><h4 class="card-title">CLEANING</h4></a> 
+                                      <p class="card-text">This is basic card with image on top, title, description and button.</p>
+                                      <a href="{% url 'ecommerce:cleaning' %}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                  </div>
+                              </div>
+                          </div>
+
+                      </div>
+
+              </div>
+              <!-- ./Team member -->
+              <!-- Team member -->
+              <div class="col-xs-12 col-sm-6 col-md-3">
+
+                      <div class="mainflip">
+                          <div class="frontside">
+                              <div class="card">
+                                  <div class="card-body text-center">
+                                    <a href="{% url 'ecommerce:garden' %}"><h4 class="card-title">GARDEN</h4></a>
+                                      <p class="card-text">This is basic card with image on top, title, description and button.</p>
+                                      <a href="{% url 'ecommerce:garden' %}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                  </div>
+                              </div>
+                          </div>
+
+                      </div>
+
+              </div>
+              <!-- ./Team member -->
+              <!-- Team member -->
+              <div class="col-xs-12 col-sm-6 col-md-3">
+
+                      <div class="mainflip">
+                          <div class="frontside">
+                              <div class="card">
+                                  <div class="card-body text-center">
+                                    <a href="{% url 'ecommerce:laundry' %}"><h4 class="card-title">LAUNDRY</h4></a>
+                                      <p class="card-text">This is basic card with image on top, title, description and button.</p>
+                                      <a href="{% url 'ecommerce:laundry' %}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                  </div>
+                              </div>
+                          </div>
+
+                      </div>
+
+              </div>
+              <!-- ./Team member -->
+
+          </div>
+      </div>
+  </section>
+  </div>
+</div>
+<!-- Arrivals Products Area End Here -->
+<!-- Like Products Area Start Here -->
+<div class="hot-deal-products off-white-bg pb-90 pb-sm-50">
+  <div class="container">
+    <!-- Product Title Start -->
+    <div class="post-title pb-30">
+      <h2>our best automobile</h2>
+    </div>
+    <!-- Product Title End -->
+    <!-- Hot Deal Product Activation Start -->
+    <div class="hot-deal-active owl-carousel">
+      {% if cars %}
+      {% for car in cars %}
+      <!-- Single Product Start -->
+      <div class="single-product">
+        <!-- Product Image Start -->
+        <div class="container banner-2">
+          <div class="banner-box">
+            <div class="col-img">
+              <a href="{{ car.get_absolute_url }}"><img src="{{ car.first_car_image.image.url }}"
+                  alt="banner 3"></a>
+            </div>
+          </div>
+
+        </div>
+        <!--
+        <div class="pro-img">
+          <a href="{{ product.get_absolute_url }}">
+            <img class="primary-img" src="{{ product.first_product_image.pimage.url }}" alt="single-product">
+            <img class="secondary-img" src="{{ product.first_product_image.pimage.url }}" alt="single-product">
+          </a>
+         
+        </div>
+      -->
+        <!-- Product Image End -->
+        <!-- Product Content Start -->
+        <div class="pro-content">
+          <div class="pro-info">
+            <h4><a href="{{ car.get_absolute_url }}">{{ car.title }}</a></h4>
+            <p><span class="price">GH&#8373; {{ car.price }}</span><del class="prev-price">GH&#8373; {{ car.previous_price }}</del></p>
+            <!--<div class="label-product l_sale">views<span class="symbol-percent"></span></div>-->
+          </div>
+
+        </div>
+        <!-- Product Content End -->
+      </div>
+      {% endfor %}
+      {% else %}
+      <ul class="list-inline">
+        <li class="list-inline-item">
+          <h3><i>NO post </i</h3>
+        </li>
+
+      </ul>
+      {% endif %}
+      <!-- Single Product End -->
+      <!-- Single Product End -->
+    </div>
+    <!-- Hot Deal Product Active End -->
+
+  </div>
+  <!-- Container End -->
+</div>
+<!-- Lile Products Area End Here -->
+
+<div class="hot-deal-products off-white-bg pb-90 pb-sm-50">
+  <div class="container">
+    <!-- Product Title Start -->
+    <div class="post-title pb-30">
+      <h2>shelter and accomadation</h2>
+    </div>
+    <!-- Product Title End -->
+    <!-- Hot Deal Product Activation Start -->
+    <div class="hot-deal-active owl-carousel">
+      {% if houses %}
+      {% for house in houses %}
+      <!-- Single Product Start -->
+      <div class="single-product">
+        <!-- Product Image Start -->
+        <div class="container banner-2">
+          <div class="banner-box">
+            <div class="col-img">
+              <a href="{{ house.get_absolute_url }}"><img src="{{ house.first_house_image.image.url }}"
+                  alt="banner 3"></a>
+            </div>
+          </div>
+
+        </div>
+        <!--
+        <div class="pro-img">
+          <a href="{{ product.get_absolute_url }}">
+            <img class="primary-img" src="{{ product.first_product_image.pimage.url }}" alt="single-product">
+            <img class="secondary-img" src="{{ product.first_product_image.pimage.url }}" alt="single-product">
+          </a>
+         
+        </div>
+      -->
+        <!-- Product Image End -->
+        <!-- Product Content Start -->
+        <div class="pro-content">
+          <div class="pro-info">
+            <h4><a href="{{ house.get_absolute_url }}">{{ house.title }}</a></h4>
+            <p><span class="price">GH&#8373; {{ house.price }}</span><del class="prev-price">GH&#8373; {{ house.previous_price }}</del></p>
+            <!--<div class="label-product l_sale">views<span class="symbol-percent"></span></div>-->
+          </div>
+
+        </div>
+        <!-- Product Content End -->
+      </div>
+      {% endfor %}
+      {% else %}
+      <ul class="list-inline">
+        <li class="list-inline-item">
+          <h3><i>NO post </i</h3>
+        </li>
+
+      </ul>
+      {% endif %}
+      <!-- Single Product End -->
+      <!-- Single Product End -->
+    </div>
+    <!-- Hot Deal Product Active End -->
+
+  </div>
+  <!-- Container End -->
+</div>
+<!-- Brand Banner Area Start Here -->
+<div class="main-brand-banner pt-95 pb-100 pt-sm-55 pb-sm-60">
+  <div class="container">
+    <div class="section-ttitle mb-20">
+      <h2>Best Seller</h2>
+    </div>
+    <div class="row no-gutters">
+      <div class="col-lg-3">
+        <div class="col-img">
+          <img src="static/img/banner/h1-band1.jpg" alt="">
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <!-- Brand Banner Start -->
+        <div class="brand-banner owl-carousel">
+          {% for user in most_active %}
+          <div class="single-brand">
+            <a href="#"><img class="img" src="" alt="user name"></a>
+            <a href="#"><img src="img/brand/2.jpg" alt="brand-image"></a>
+            <a href="#"><img src="img/brand/3.jpg" alt="brand-image"></a>
+          </div>
+          <div class="single-brand">
+            <a href="#"><img class="img" src="" alt="brand-image"></a>
+            <a href="#"><img src="img/brand/2.jpg" alt="brand-image"></a>
+            <a href="#"><img src="img/brand/3.jpg" alt="brand-image"></a>
+          </div>
+          <div class="single-brand">
+            <a href="#"><img src="img/brand/1.jpg" alt="brand-image"></a>
+            <a href="#"><img src="img/brand/2.jpg" alt="brand-image"></a>
+            <a href="#"><img src="img/brand/3.jpg" alt="brand-image"></a>
+
+          </div>
+          <div class="single-brand">
+            <a href="#"><img src="img/brand/2.jpg" alt="brand-image"></a>
+            <a href="#"><img src="img/brand/3.jpg" alt="brand-image"></a>
+            <a href="#"><img src="img/brand/4.jpg" alt="brand-image"></a>
+          </div>
+          <div class="single-brand">
+            <a href="#"><img src="img/brand/2.jpg" alt="brand-image"></a>
+            <a href="#"><img src="img/brand/3.jpg" alt="brand-image"></a>
+            <a href="#"><img src="img/brand/4.jpg" alt="brand-image"></a>
+          </div>
+          <div class="single-brand">
+            <a href="#"><img src="img/brand/2.jpg" alt="brand-image"></a>
+            <a href="#"><img src="img/brand/3.jpg" alt="brand-image"></a>
+            <a href="#"><img src="img/brand/4.jpg" alt="brand-image"></a>
+          </div>
+          <div class="single-brand">
+            <a href="#"><img src="img/brand/2.jpg" alt="brand-image"></a>
+            <a href="#"><img src="img/brand/3.jpg" alt="brand-image"></a>
+            <a href="#"><img src="img/brand/4.jpg" alt="brand-image"></a>
+          </div>
+          {% endfor %}
+        </div>
+        <!-- Brand Banner End -->
+
+      </div>
+      <div class="col-lg-3">
+        <div class="col-img">
+          <img src="static/img/banner/h1-band2.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Container End -->
+</div>
+<!-- Brand Banner Area End Here -->
+{% endblock main %}

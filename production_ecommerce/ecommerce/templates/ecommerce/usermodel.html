@@ -1,0 +1,23 @@
+
+    <div class="container" style="margin-left:25%;">
+        <h2>Registration</h2>
+        <form method="post">
+            {% csrf_token %}
+            {% for field in registration_form %}
+
+                <p>
+                        {{field.label_tag}}
+                        {{field}}
+
+                        {% if field.help_text %}
+                        <small style="color: blue;">{{field.help_text}}</small>
+                        {% endif %}
+                        {% for error in field.error %}
+                        <p style="color:red;">{{error}}</p>
+                        {% endfor %}
+                </p>
+            {% endfor %}
+                <button type="submit">REGISTER</button>
+
+        </form>
+    </div>

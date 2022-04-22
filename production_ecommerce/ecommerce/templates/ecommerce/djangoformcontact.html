@@ -1,0 +1,5 @@
+<form method="POST" action="{% url 'ecommerce:send_mail' %}">
+  {% csrf_token %}
+   {{form.as_p}}
+   <<button type="submit" name="Submit">send mail</button>
+</form>
